@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from engine import Engine
+import sys
 
 
 class TermClient(Engine):
@@ -12,7 +13,17 @@ class TermClient(Engine):
         for data in obj: print(data)
 
     def execute(self):
-        self.run()
+        sys.stdout.write("\033[0;0m")               # reset coloring
+        out = self.run()
+        if out == "correct":
+            sys.stdout.write("\033[0;32m")
+            print(out)
+        elif out == "false":
+            sys.stdout.write("\033[1;31m")
+            print(out)
+        else:
+            sys.stdout.write("\033[0;0m")
+            print(out)
 
 
 def main():

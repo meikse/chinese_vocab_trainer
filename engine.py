@@ -39,7 +39,6 @@ class Engine:
 
     def backward(self):
         new_list = [list(row.values()) for row in self.all_lectures]
-        print(new_list)
         with open(self.file, 'w') as f:
             write = csv.writer(f)
             write.writerows(new_list)
@@ -56,13 +55,13 @@ class Engine:
 
     def command(self, cmd):
             if cmd == "h":
-                print(" i \t\t\t\t info for word hints \n" + 
-                " c <lan> \t\t\t change target lang (german,pinyin,hanyu)\n" + 
-                " n <ger> <pin> <han> <(inf)> \t new vocab for the list \n" +
-                " h \t\t\t\t for this help \n" +
-                " q \t\t\t\t quit this client")
+                return ' i \t\t\t\t info for word hints \n'\
+                ' c <lan> \t\t\t change target lang (german,pinyin,hanyu) \n'\
+                ' n <ger> <pin> <han> <(inf)> \t new vocab for the list \n'\
+                ' h \t\t\t\t for this help \n'\
+                ' q \t\t\t\t quit this client'
             elif cmd == "i":
-                print(self.lecture[self.index][self.keys[-1]])
+                return self.lecture[self.index][self.keys[-1]]
             elif cmd == "c":
                 self.flag_q = input("target language: ")
                 self.flag_a = input("input language: ")
@@ -74,25 +73,20 @@ class Engine:
             elif cmd == "q":
                 sys.exit()
             else:
-                print("not a command")
+                return "not a command"
 
 
     def run(self):
-        sys.stdout.write("\033[0;0m")               # reset coloring
         enter = self.load()
         # check for commands
         if len(enter) == 1:
-            self.command(enter)
-            self.answered = False
+            return self.command(enter)
         # check results
         else:
             if enter == self.lecture[self.index][self.flag_a]:
-                sys.stdout.write("\033[0;32m")
-                print("correct")
+                return "correct"
             else:
-                sys.stdout.write("\033[1;31m")
-                print("false")
-            self.answered = True
+                return "false"
 
 
 # def main():
