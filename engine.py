@@ -8,7 +8,7 @@ import csv
 from random import randint
 
 
-class Client:
+class Engine:
 
 
     def __init__(self, file="./vocab.csv", level = 1):
@@ -98,11 +98,11 @@ class Client:
             self.answered = True
 
 
-def main():
-    client = Client()
-    while True:
-        client.run() 
+# def main():
+#     client = Engine()
+#     while True:
+#         client.run() 
     
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
