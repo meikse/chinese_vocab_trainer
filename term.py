@@ -6,15 +6,42 @@ import sys
 
 class TermClient(Engine):
 
-    def __init__(self, level):
-        super().__init__(level=level)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
     def display(self, obj):
         for data in obj: print(data)
 
+    def command(self, cmd):
+        if cmd == "h":
+            return ' i \t\t\t\t info for word hints \n'\
+            ' c <tar> <in> \t\t change target lang (german,pinyin,hanyu) \n'\
+            ' n <ger> <pin> <han> <(inf)> \t new vocab for the list \n'\
+            ' h \t\t\t\t for this help \n'\
+            ' q \t\t\t\t quit this client'
+        elif cmd == "i":
+            return self.lecture[self.index][self.keys[-1]]
+        elif cmd == "c":
+            self.flag_q = input("target language: ")
+            self.flag_a = input("input language: ")
+        elif cmd == "n":
+            new_entry = {self.keys[i]: input(self.keys[i] + ": ") 
+                for i in range(len(self.keys))}
+            self.all_lectures.append(new_entry) # safe for this session
+            self.backward()                     # safe in the file
+        elif cmd == "q":
+            print("\n ratio: {}%".format(int(self.stats()*100)))
+            sys.exit()
+        else:
+            return "not a command"
+
     def execute(self):
         sys.stdout.write("\033[0;0m")               # reset coloring
-        out = self.run()
+        msg = input(self.load())
+        if len(msg) == 1:
+            out = self.command(msg)
+        else:
+            out = self.eval(msg)
         if out == "correct":
             sys.stdout.write("\033[0;32m")
             print(out)
@@ -27,7 +54,8 @@ class TermClient(Engine):
 
 
 def main():
-    client = TermClient(level = 1)
+    client = TermClient(file = sys.argv[1],     # argsparse TODO
+                        level= sys.argv[2])
     while True:
         client.execute()
 
