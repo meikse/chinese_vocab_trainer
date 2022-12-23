@@ -45,9 +45,6 @@ class Engine:
             write.writerows(new_list)
 
 
-    def display(self, obj):
-        for data in obj: print(data)
-
 
     def load(self):
         if self.answered: 
