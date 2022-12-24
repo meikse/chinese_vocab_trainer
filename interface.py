@@ -40,8 +40,11 @@ class App(Tk, Engine):
         self.button.grid(row=1, column=1)
         # row 3
         self.target=Listbox(self, listvariable = var)
+        self.target.bind('<<ListboxSelect>>', self.check_target)
         self.target.grid(row=2, column=0)
+
         self.input=Listbox(self, listvariable = var)
+        self.input.bind('<<ListboxSelect>>', self.check_input)
         self.input.grid(row=2, column=1)
 
         self.flag = True
@@ -53,7 +56,6 @@ class App(Tk, Engine):
         self.quest.config(text=self.lecture[self.index][self.flag_q])
 
     def check_result(self, event):
-        self.check_lanuage()
         if self.flag:
             if self.entry.get() == "":
                 self.answer.config(text="")
@@ -70,8 +72,17 @@ class App(Tk, Engine):
             self.update_quest()
             self.flag = True
 
-    def check_lanuage(self):
-        self.answer.config(text=self.target.get(0))
+    def check_target(self, event):
+        if self.target.curselection():
+            index = int(self.target.curselection()[0])
+            value = self.target.get(index)
+            self.flag_q=value
+
+    def check_input(self, event):
+        if self.input.curselection():
+            index = int(self.input.curselection()[0])
+            value = self.input.get(index)
+            self.flag_a=value
 
 
 def main():
