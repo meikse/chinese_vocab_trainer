@@ -1,13 +1,26 @@
 #!/usr/bin/env python3
 
 from engine import Engine
+from argparse import ArgumentParser
 import sys
 
 
 class TermClient(Engine):
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self):
+
+        parser = ArgumentParser(description = "my program description")
+        parser.add_argument("-f", 
+                            "--file",
+                            help = "use this vocab file (default: ./vocab.csv)",
+                            required = False,
+                            default = "./vocab.csv")
+        parser.add_argument("-l",
+                            "--lect",
+                            help = "choose lecture difficulty (e.g 1)",
+                            default = "1")
+        argument = parser.parse_args()
+        super().__init__(argument.file, argument.lect)
 
     def display(self, obj):
         for data in obj: print(data)
@@ -54,10 +67,12 @@ class TermClient(Engine):
 
 
 def main():
-    client = TermClient(file = sys.argv[1],     # argsparse TODO
-                        level= sys.argv[2])
-    while True:
-        client.execute()
+    client = TermClient()
+    try:
+        while True:
+            client.execute()
+    except KeyboardInterrupt:
+        sys.exit()
 
 if __name__ == '__main__':
     main()

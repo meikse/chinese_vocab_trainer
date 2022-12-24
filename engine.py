@@ -59,4 +59,7 @@ class Engine:
             return "false"
 
     def stats(self):
-        return self.correct/self.total
+        try:
+            return self.correct/self.total
+        except:
+            return 0
