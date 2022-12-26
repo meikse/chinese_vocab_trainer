@@ -3,14 +3,28 @@
 # import sys 
 
 from tkinter import *
+from argparse import ArgumentParser
 from engine import Engine
 
 class App(Tk, Engine):
 
     def __init__(self):
 
+        parser = ArgumentParser(description = "my program description")
+        parser.add_argument("-f", 
+                            "--file",
+                            help = "use this vocab file (default: ./vocab.csv)",
+                            required = False,
+                            default = "./vocab.csv")
+        parser.add_argument("-l",
+                            "--lect",
+                            help = "choose lecture difficulty (e.g 1)",
+                            default = "1")
+        argument = parser.parse_args()
+        Engine.__init__(self, argument.file, argument.lect)
+
         Tk.__init__(self)
-        Engine.__init__(self)
+        # Engine.__init__(self)
 
         # self.geometry('{}x{}'.format(600, 400))   
         # self.resizable(False, False)
