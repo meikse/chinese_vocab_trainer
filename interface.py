@@ -21,13 +21,9 @@ class App(Tk, Engine):
                             help = "choose lecture difficulty (e.g 1)",
                             default = "1")
         argument = parser.parse_args()
+
         Engine.__init__(self, argument.file, argument.lect)
-
         Tk.__init__(self)
-        # Engine.__init__(self)
-
-        # self.geometry('{}x{}'.format(600, 400))   
-        # self.resizable(False, False)
 
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=5)
