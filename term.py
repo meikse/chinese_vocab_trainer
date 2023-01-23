@@ -28,7 +28,7 @@ class TermClient(Engine):
     def command(self, cmd):
         if cmd == "h":
             return ' i \t\t\t\t info for word hints \n'\
-            ' c <tar> <in> \t\t change target lang (german,pinyin,hanyu) \n'\
+            ' c <tar> <in> \t\t\t change target lang (german,pinyin,hanyu) \n'\
             ' n <ger> <pin> <han> <(inf)> \t new vocab for the list \n'\
             ' h \t\t\t\t for this help \n'\
             ' q \t\t\t\t quit this client'
