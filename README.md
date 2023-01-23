@@ -2,7 +2,11 @@
 
 Simple Python vocab trainer to learn Chinese in Pinyin and Hanyu.
 
-<!-- gifs -->
+| terminal                         | interface                         |
+|----------------------------------|-----------------------------------|
+| | |
+<!-- | ![](./assets/terminal.gif =300x) | ![](./assets/interface.png =400x) | -->
+
 
 ## prerequisites
 
@@ -10,7 +14,7 @@ Simple Python vocab trainer to learn Chinese in Pinyin and Hanyu.
 
 ## installation
 
-Simply clone this repository and execute it with your python3 interpreter.
+Simply clone this repository: 
 ```sh
 git clone https://github.com/meikse/chinese_vocab_trainer --b tkinter
 ```
@@ -19,7 +23,7 @@ No extra modules are needed for usage.
 ## preparation
 
 To simply use the trainer, a `./vocab.csv` shall exist in the root. 
-This file should be manually filled with vocabulary that will be learned by the user.
+This file should be manually filled with vocabulary that will be learned by the user. Note, only "," should be used as separation indicator!
 For that the following pattern must be adhered for one row: 
 
 | level | german | pinyin | hanyu | hints
@@ -50,15 +54,15 @@ python3 term.py -f <file> -l <level>
 in terminal-mode, one can press `h` to receive further help.
 Following actions are possible:
 
-| official | ascii                                      |
-|----------|--------------------------------------------|
-| i        | info for word hints                        |
-| c        | change target lang (target, pinyin, hanyu) |
-| n        | new vocab for the list                     |
-| h        | for this help                              |
-| q        | quit this client                           |
+| args | description                                |
+|------|--------------------------------------------|
+| i    | info for word hints                        |
+| c    | change target lang (target, pinyin, hanyu) |
+| n    | new vocab for the list                     |
+| h    | for this help                              |
+| q    | quit this client                           |
 
-to use the trainer with a GUI, execute
+to use the trainer with an interface, execute
 ```sh
 python3 interface.py -f <file> -l <level>
 ```
@@ -74,4 +78,5 @@ If no lecture is specified, the first lecture is chosen.
 - make a simple script to execute either terminal or GUI app
 - `c` command in terminal mode is not working properly
 - un-specify target language
+- at least 2 entries must exist for a level
 - beautify GUI
