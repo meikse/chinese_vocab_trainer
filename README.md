@@ -4,8 +4,7 @@ Simple Python vocab trainer to learn Chinese in Pinyin and Hanyu.
 
 | terminal                         | interface                         |
 |----------------------------------|-----------------------------------|
-| | |
-<!-- | ![](./assets/terminal.gif =300x) | ![](./assets/interface.png =400x) | -->
+| <terminal gif> | ![interface](https://user-images.githubusercontent.com/75035512/214163526-2c71a321-54f6-4139-a198-87f593d12fb1.png =400x) |
 
 
 ## prerequisites
