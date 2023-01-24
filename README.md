@@ -1,10 +1,11 @@
 
 Simple Python vocab trainer to learn Chinese in Pinyin and Hanyu.
 
-| terminal                                  | interface                                   |
-|-------------------------------------------|---------------------------------------------|
-| ![terminal](../assets/terminal.gif =434x) | ![interface](../assets/interface.png =400x) |
+| terminal                                         | interface                                         |
+|--------------------------------------------------|---------------------------------------------------|
+| <img src="../assets/terminal.gif" width="434" /> | <img src="../assets/interface.png" width="400" /> |
 
+<!-- | ![terminal](../assets/terminal.gif =434x) | ![interface](../assets/interface.png =400x) | -->
 <!-- | <img src="https://user-images.githubusercontent.com/75035512/214173638-2f9b81ff-23cf-41ad-98f1-6757d19ba807.gif" width="434" /> | <img src="https://user-images.githubusercontent.com/75035512/214163526-2c71a321-54f6-4139-a198-87f593d12fb1.png" width="400" /> | -->
 
 ## prerequisites
